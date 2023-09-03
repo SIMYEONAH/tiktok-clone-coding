@@ -101,6 +101,7 @@ class _VideoPostState extends State<VideoPost>
     }
     await showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) => const VideoComments(),
     );
@@ -166,7 +167,7 @@ class _VideoPostState extends State<VideoPost>
                 ),
                 Gaps.v10,
                 Text(
-                  "It's so fun!!!!",
+                  "It's so fun!!!",
                   style: TextStyle(
                     fontSize: Sizes.size16,
                     color: Colors.white,
@@ -185,9 +186,9 @@ class _VideoPostState extends State<VideoPost>
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
                   foregroundImage: NetworkImage(
-                    "https://64.media.tumblr.com/8826c1006b4437092627461b0b10c95c/tumblr_mfjrynkya11rdg88co1_1280.png",
+                    "https://cdn.newspenguin.com/news/photo/202010/3276_9692_1455.jpg",
                   ),
-                  child: Text("tt"),
+                  child: Text("뚱냥"),
                 ),
                 Gaps.v24,
                 const VideoButton(

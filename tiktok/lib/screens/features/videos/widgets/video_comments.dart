@@ -13,6 +13,7 @@ class VideoComments extends StatefulWidget {
 
 class _VideoCommentsState extends State<VideoComments> {
   bool _isWriting = false;
+
   final ScrollController _scrollController = ScrollController();
 
   void _onClosePressed() {
@@ -46,7 +47,7 @@ class _VideoCommentsState extends State<VideoComments> {
         appBar: AppBar(
           backgroundColor: Colors.grey.shade50,
           automaticallyImplyLeading: false,
-          title: const Text("87361 comments"),
+          title: const Text("3354 comments"),
           actions: [
             IconButton(
               onPressed: _onClosePressed,
@@ -61,6 +62,7 @@ class _VideoCommentsState extends State<VideoComments> {
               Scrollbar(
                 controller: _scrollController,
                 child: ListView.separated(
+                  controller: _scrollController,
                   padding: const EdgeInsets.only(
                     top: Sizes.size10,
                     bottom: Sizes.size96 + Sizes.size20,
