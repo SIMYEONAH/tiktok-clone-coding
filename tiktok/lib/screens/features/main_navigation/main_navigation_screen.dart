@@ -7,6 +7,7 @@ import 'package:tiktok/screens/features/main_navigation/widgets/post_video_butto
 import '../../../constants/gaps.dart';
 import '../../../constants/sizes.dart';
 import '../inbox/inbox_screen.dart';
+import '../users/user_profile_screen.dart';
 import '../videos/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class MainNavigationScreen extends StatefulWidget {
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 4;
 
   // final screens = [
   //   StfScreen(key: GlobalKey()),
@@ -64,7 +65,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         ),
         Offstage(
           offstage: _selectedIndex != 4,
-          child: Container(),
+          child: const UserProfileScreen(),
         ),
       ]),
       bottomNavigationBar: BottomAppBar(
