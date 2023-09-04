@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/videos/nextLevel.mp4
     - assets/images/image4.JPG
+    - assets/images/image3.JPG
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
