@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tiktok/screens/features/inbox/chats_screen.dart';
 
 import '../../../constants/sizes.dart';
 import 'activity_screen.dart';
 
-class InboxScreen extends StatelessWidget {
+class InboxScreen extends StatefulWidget {
   const InboxScreen({super.key});
 
-  void _onDmPressed() {}
+  @override
+  State<InboxScreen> createState() => _InboxScreenState();
+}
 
-  void _onActivityTap(BuildContext context) {
+class _InboxScreenState extends State<InboxScreen> {
+  void _onDmPressed() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const ChatsScreen(),
+      ),
+    );
+  }
+
+  void _onActivityTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const ActivityScreen(),
@@ -36,7 +48,7 @@ class InboxScreen extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            onTap: () => _onActivityTap(context),
+            onTap: _onActivityTap,
             title: const Text(
               'Activity',
               style: TextStyle(
