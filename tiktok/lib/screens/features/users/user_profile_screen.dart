@@ -5,6 +5,7 @@ import 'package:tiktok/screens/features/users/widgets/persistent_tab_bar.dart';
 
 import '../../../constants/gaps.dart';
 import '../../../constants/sizes.dart';
+import '../settings/settings_screen.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -14,6 +15,14 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  void _onGearPressed() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const SettingsScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,10 +32,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
               SliverAppBar(
-                title: const Text('니꼬'),
+                title: const Text('뚱냥'),
                 actions: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: _onGearPressed,
                     icon: const FaIcon(
                       FontAwesomeIcons.gear,
                       size: Sizes.size20,
@@ -41,15 +50,15 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       radius: 50,
                       foregroundColor: Colors.teal,
                       foregroundImage: NetworkImage(
-                          'https://avatars.githubusercontent.com/u/29852320?s=400&u=a64dc19ce958d91b81e109642f5d6b913317dae9&v=4'),
-                      child: Text('니꼬'),
+                          'https://postfiles.pstatic.net/MjAyMzA4MDZfMjc4/MDAxNjkxMzI5OTM5ODAx.4MrTo3EjdVG8fXZVud9EhHJ3zd7DjNyqmyKQQyTuu7Mg.P6zTktEVOlecQc5DTPpo79Z6m_Eo4997zvGpIszDlDIg.JPEG.simya0528/IMG_5700.JPG?type=w580'),
+                      child: Text('뚱냥'),
                     ),
                     Gaps.v20,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          '@니꼬',
+                          '@뚱냥',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: Sizes.size18,
