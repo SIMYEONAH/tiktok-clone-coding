@@ -8,7 +8,9 @@ import '../../../constants/sizes.dart';
 import '../settings/settings_screen.dart';
 
 class UserProfileScreen extends StatefulWidget {
-  const UserProfileScreen({super.key});
+  final String username;
+
+  const UserProfileScreen({super.key, required this.username});
 
   @override
   State<UserProfileScreen> createState() => _UserProfileScreenState();
@@ -32,7 +34,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
               SliverAppBar(
-                title: const Text('뚱냥'),
+                title: Text(widget.username),
                 actions: [
                   IconButton(
                     onPressed: _onGearPressed,
@@ -48,18 +50,17 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   children: [
                     const CircleAvatar(
                       radius: 50,
-                      foregroundColor: Colors.teal,
                       foregroundImage: NetworkImage(
                           'https://postfiles.pstatic.net/MjAyMzA4MDZfMjc4/MDAxNjkxMzI5OTM5ODAx.4MrTo3EjdVG8fXZVud9EhHJ3zd7DjNyqmyKQQyTuu7Mg.P6zTktEVOlecQc5DTPpo79Z6m_Eo4997zvGpIszDlDIg.JPEG.simya0528/IMG_5700.JPG?type=w580'),
-                      child: Text('뚱냥'),
+                      child: Text("뚱냥"),
                     ),
                     Gaps.v20,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
-                          '@뚱냥',
-                          style: TextStyle(
+                        Text(
+                          '@${widget.username}',
+                          style: const TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: Sizes.size18,
                           ),
