@@ -4,7 +4,14 @@ import 'package:tiktok/constants/sizes.dart';
 import 'package:tiktok/screens/features/authentication/password_screen.dart';
 import 'package:tiktok/screens/features/authentication/widgets/form_button.dart';
 
+class EmailScreenArgs {
+  final String username;
+
+  EmailScreenArgs({required this.username});
+}
+
 class EmailScreen extends StatefulWidget {
+  static String routeName = "/email";
   const EmailScreen({super.key});
 
   @override

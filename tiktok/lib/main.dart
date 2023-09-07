@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tiktok/screens/features/main_navigation/main_navigation_screen.dart';
+import 'package:tiktok/router.dart';
 
 import 'constants/sizes.dart';
 
@@ -25,7 +25,8 @@ class TikTokApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       debugShowCheckedModeBanner: false,
       title: 'TikTok Clone',
       theme: ThemeData(
@@ -41,12 +42,11 @@ class TikTokApp extends StatelessWidget {
           elevation: 0,
           titleTextStyle: TextStyle(
             color: Colors.black,
-            fontSize: Sizes.size16 + Sizes.size2,
+            fontSize: Sizes.size18,
             fontWeight: FontWeight.w600,
           ),
         ),
       ),
-      home: const MainNavigationScreen(),
     );
   }
 }
