@@ -3,8 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tiktok/constants/gaps.dart';
 import 'package:tiktok/constants/sizes.dart';
-import 'package:tiktok/screens/features/authentication/username_screen.dart';
 import 'package:tiktok/screens/features/authentication/login_screen.dart';
+import 'package:tiktok/screens/features/authentication/username_screen.dart';
 import 'package:tiktok/screens/features/authentication/widgets/auth_button.dart';
 
 class SignUpScreen extends StatelessWidget {
