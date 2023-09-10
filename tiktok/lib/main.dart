@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok/router.dart';
 
 import 'constants/sizes.dart';
@@ -32,7 +31,7 @@ class TikTokApp extends StatelessWidget {
       title: 'TikTok Clone',
       themeMode: ThemeMode.system,
       theme: ThemeData(
-        textTheme: GoogleFonts.itimTextTheme(),
+        textTheme: Typography.blackMountainView,
         brightness: Brightness.light,
         scaffoldBackgroundColor: Colors.white,
         primaryColor: const Color(0xFFE9435A),
@@ -50,15 +49,27 @@ class TikTokApp extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
+        tabBarTheme: TabBarTheme(
+          labelColor: Colors.black,
+          unselectedLabelColor: Colors.grey.shade500,
+          indicatorColor: Colors.black,
+        ),
       ),
       darkTheme: ThemeData(
-        textTheme: GoogleFonts.itimTextTheme(
-          ThemeData(brightness: Brightness.dark).textTheme,
+        tabBarTheme: const TabBarTheme(
+          indicatorColor: Colors.white,
         ),
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: Color(0xFFE9435A),
+        ),
+        textTheme: Typography.whiteMountainView,
         brightness: Brightness.dark,
         scaffoldBackgroundColor: Colors.black,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.grey.shade900,
+        ),
         bottomAppBarTheme: BottomAppBarTheme(
-          color: Colors.grey.shade800,
+          color: Colors.grey.shade900,
         ),
         primaryColor: const Color(0xFFE9435A),
       ),

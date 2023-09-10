@@ -15,33 +15,32 @@ class BirthdayScreen extends StatefulWidget {
 class _BirthdayScreenState extends State<BirthdayScreen> {
   final TextEditingController _birthdayController = TextEditingController();
 
-  late DateTime initialDate;
+  DateTime initialDate = DateTime.now();
 
   @override
   void initState() {
     super.initState();
-    DateTime now = DateTime.now();
-    initialDate = DateTime(now.year - 12);
     _setTextFieldDate(initialDate);
-  }
-
-  void _onNextTap() {
-    Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(
-          builder: (context) => const InterestsScreen(),
-        ),
-        (route) => false);
-  }
-
-  void _setTextFieldDate(DateTime date) {
-    final textDate = date.toString().split(" ").first;
-    _birthdayController.value = TextEditingValue(text: textDate);
   }
 
   @override
   void dispose() {
     _birthdayController.dispose();
     super.dispose();
+  }
+
+  void _onNextTap() {
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(
+        builder: (context) => const InterestsScreen(),
+      ),
+      (route) => false,
+    );
+  }
+
+  void _setTextFieldDate(DateTime date) {
+    final textDate = date.toString().split(" ").first;
+    _birthdayController.value = TextEditingValue(text: textDate);
   }
 
   @override
@@ -69,7 +68,7 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
             ),
             Gaps.v8,
             const Text(
-              "You birthday won't be shown publicly",
+              "Your birthday won't be shown publicly.",
               style: TextStyle(
                 fontSize: Sizes.size16,
                 color: Colors.black54,
