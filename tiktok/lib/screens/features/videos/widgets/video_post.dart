@@ -6,6 +6,7 @@ import 'package:tiktok/screens/features/videos/widgets/video_comments.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
+import '../../../../common/widgets/video_config/video_config.dart';
 import '../../../../constants/gaps.dart';
 import '../../../../constants/sizes.dart';
 
@@ -105,7 +106,6 @@ class _VideoPostState extends State<VideoPost>
 
   _onVolumeTap() {
     _isMuted = !_isMuted;
-    print(_isMuted ? '뮤트됨' : '소리켜짐');
     if (_isMuted) {
       _videoPlayerController.setVolume(0);
     } else {
@@ -170,6 +170,19 @@ class _VideoPostState extends State<VideoPost>
                   ),
                 ),
               ),
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 40,
+            child: IconButton(
+              icon: FaIcon(
+                VideoConfigData.of(context).autoMute
+                    ? FontAwesomeIcons.volumeOff
+                    : FontAwesomeIcons.volumeHigh,
+                color: Colors.white,
+              ),
+              onPressed: VideoConfigData.of(context).toggleMuted,
             ),
           ),
           const Positioned(
