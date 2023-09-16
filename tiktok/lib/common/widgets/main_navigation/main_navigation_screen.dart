@@ -10,7 +10,7 @@ import '../../../constants/gaps.dart';
 import '../../../constants/sizes.dart';
 import '../../../screens/features/inbox/inbox_screen.dart';
 import '../../../screens/features/users/user_profile_screen.dart';
-import '../../../screens/features/videos/video_timeline_screen.dart';
+import '../../../screens/features/videos/views/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   static const String routeName = "mainNavigation";
