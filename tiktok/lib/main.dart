@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:tiktok/router.dart';
 
+import 'common/widgets/video_config/video_config.dart';
 import 'constants/sizes.dart';
 
 void main() async {
@@ -20,61 +22,70 @@ void main() async {
   runApp(const TikTokApp());
 }
 
+final isDarkTheme = ValueNotifier(false);
+
 class TikTokApp extends StatelessWidget {
   const TikTokApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: router,
-      debugShowCheckedModeBanner: false,
-      title: 'TikTok Clone',
-      themeMode: ThemeMode.system,
-      theme: ThemeData(
-        textTheme: Typography.blackMountainView,
-        brightness: Brightness.light,
-        scaffoldBackgroundColor: Colors.white,
-        primaryColor: const Color(0xFFE9435A),
-        textSelectionTheme: const TextSelectionThemeData(
-          cursorColor: Color(0xFFE9435A),
-        ),
-        splashColor: Colors.transparent,
-        appBarTheme: const AppBarTheme(
-          foregroundColor: Colors.black,
-          backgroundColor: Colors.white,
-          elevation: 0,
-          titleTextStyle: TextStyle(
-            color: Colors.black,
-            fontSize: Sizes.size18,
-            fontWeight: FontWeight.w600,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => VideoConfig(),
+        )
+      ],
+      child: MaterialApp.router(
+        routerConfig: router,
+        debugShowCheckedModeBanner: false,
+        title: 'TikTok Clone',
+        themeMode: ThemeMode.system,
+        theme: ThemeData(
+          textTheme: Typography.blackMountainView,
+          brightness: Brightness.light,
+          scaffoldBackgroundColor: Colors.white,
+          primaryColor: const Color(0xFFE9435A),
+          textSelectionTheme: const TextSelectionThemeData(
+            cursorColor: Color(0xFFE9435A),
+          ),
+          splashColor: Colors.transparent,
+          appBarTheme: const AppBarTheme(
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.white,
+            elevation: 0,
+            titleTextStyle: TextStyle(
+              color: Colors.black,
+              fontSize: Sizes.size18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          tabBarTheme: TabBarTheme(
+            labelColor: Colors.black,
+            unselectedLabelColor: Colors.grey.shade500,
+            indicatorColor: Colors.black,
+          ),
+          listTileTheme: const ListTileThemeData(
+            iconColor: Colors.black,
           ),
         ),
-        tabBarTheme: TabBarTheme(
-          labelColor: Colors.black,
-          unselectedLabelColor: Colors.grey.shade500,
-          indicatorColor: Colors.black,
+        darkTheme: ThemeData(
+          tabBarTheme: const TabBarTheme(
+            indicatorColor: Colors.white,
+          ),
+          textSelectionTheme: const TextSelectionThemeData(
+            cursorColor: Color(0xFFE9435A),
+          ),
+          textTheme: Typography.whiteMountainView,
+          brightness: Brightness.dark,
+          scaffoldBackgroundColor: Colors.black,
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.grey.shade900,
+          ),
+          bottomAppBarTheme: BottomAppBarTheme(
+            color: Colors.grey.shade900,
+          ),
+          primaryColor: const Color(0xFFE9435A),
         ),
-        listTileTheme: const ListTileThemeData(
-          iconColor: Colors.black,
-        ),
-      ),
-      darkTheme: ThemeData(
-        tabBarTheme: const TabBarTheme(
-          indicatorColor: Colors.white,
-        ),
-        textSelectionTheme: const TextSelectionThemeData(
-          cursorColor: Color(0xFFE9435A),
-        ),
-        textTheme: Typography.whiteMountainView,
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: Colors.black,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.grey.shade900,
-        ),
-        bottomAppBarTheme: BottomAppBarTheme(
-          color: Colors.grey.shade900,
-        ),
-        primaryColor: const Color(0xFFE9435A),
       ),
     );
   }
