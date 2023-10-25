@@ -9,6 +9,7 @@ import 'package:tiktok/screens/features/onboarding/interests_screen.dart';
 import 'common/widgets/main_navigation/main_navigation_screen.dart';
 
 final routerProvider = Provider((ref) {
+  //  ref.watch(authState);
   return GoRouter(
     initialLocation: "/home",
     redirect: (context, state) {
